@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+header {
+    padding: 2rem 0;
+}
+
+.card {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#chatbot-response {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 0.5em;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
