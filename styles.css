@@ -26,3 +26,28 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+/* Asegura que el cuerpo tenga un mínimo de altura y un margen adecuado */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal para empujar el footer hacia abajo */
+.container-main {
+    min-height: calc(100vh - 120px); /* Altura mínima menos el tamaño del footer */
+    padding-bottom: 20px; /* Espacio adicional antes del footer */
+}
+
+/* Estilo del footer */
+footer {
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: relative; /* Cambia esto si el footer se comporta incorrectamente */
+    width: 100%;
+}
+
+
