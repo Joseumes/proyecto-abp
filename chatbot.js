@@ -48,50 +48,52 @@ const responses = {
 
 
 
+// Base de datos de respuestas locales
+
+
 // Función para normalizar la entrada del usuario
 function normalizeInput(input) {
     return input.toLowerCase().replace(/[^\w\s]/g, "").trim();
 }
 
-// Función para buscar la mejor coincidencia en la base de datos local
-function getBestMatch(input) {
+// Función para buscar coincidencias parciales
+function getSuggestions(input) {
     const normalizedInput = normalizeInput(input);
-    let bestMatch = null;
-    let highestScore = 0;
+    const suggestions = [];
 
-    // Iterar sobre todas las claves en el objeto responses
     for (let key in responses) {
-        const normalizedKey = normalizeInput(key);
-        const score = calculateMatchScore(normalizedInput, normalizedKey);
-
-        // Si la puntuación es mayor, actualizamos la mejor coincidencia
-        if (score > highestScore) {
-            highestScore = score;
-            bestMatch = key;
+        if (normalizeInput(key).includes(normalizedInput)) {
+            suggestions.push(key);
         }
     }
 
-    // Devolver la mejor coincidencia o la respuesta por defecto
-    return bestMatch ? responses[bestMatch] : responses["default"];
+    return suggestions;
 }
 
-// Función para calcular la puntuación de coincidencia
-function calculateMatchScore(input, key) {
-    const inputWords = input.split(" ");
-    const keyWords = key.split(" ");
-    let score = 0;
+// Función para mostrar sugerencias
+function showSuggestions(input) {
+    const suggestionsDiv = document.getElementById("suggestions");
+    const suggestions = getSuggestions(input);
 
-    // Comparar cada palabra de la entrada con las palabras de la clave
-    inputWords.forEach(word => {
-        if (keyWords.includes(word)) {
-            score += 1; // Incrementar la puntuación por cada coincidencia
-        }
-    });
-
-    return score;
+    if (suggestions.length > 0) {
+        suggestionsDiv.innerHTML = "";
+        suggestions.forEach(suggestion => {
+            const div = document.createElement("div");
+            div.textContent = suggestion;
+            div.style.cursor = "pointer";
+            div.onclick = () => {
+                document.getElementById("user-input").value = suggestion;
+                suggestionsDiv.style.display = "none";
+            };
+            suggestionsDiv.appendChild(div);
+        });
+        suggestionsDiv.style.display = "block";
+    } else {
+        suggestionsDiv.style.display = "none";
+    }
 }
 
-// Función principal para manejar la entrada del usuario
+// Función para manejar la entrada del usuario
 function handleUserInput() {
     const userInput = document.getElementById("user-input").value;
     const responseDiv = document.getElementById("chatbot-response");
@@ -105,4 +107,49 @@ function handleUserInput() {
 
     // Limpiar el campo de entrada
     document.getElementById("user-input").value = "";
+    document.getElementById("suggestions").style.display = "none";
 }
+
+// Función para buscar la mejor coincidencia en la base de datos local
+function getBestMatch(input) {
+    const normalizedInput = normalizeInput(input);
+    let bestMatch = null;
+    let highestScore = 0;
+
+    for (let key in responses) {
+        const normalizedKey = normalizeInput(key);
+        const score = calculateMatchScore(normalizedInput, normalizedKey);
+
+        if (score > highestScore) {
+            highestScore = score;
+            bestMatch = key;
+        }
+    }
+
+    return bestMatch ? responses[bestMatch] : responses["default"];
+}
+
+// Función para calcular la puntuación de coincidencia
+function calculateMatchScore(input, key) {
+    const inputWords = input.split(" ");
+    const keyWords = key.split(" ");
+    let score = 0;
+
+    inputWords.forEach(word => {
+        if (keyWords.includes(word)) {
+            score += 1;
+        }
+    });
+
+    return score;
+}
+
+// Evento de entrada del usuario
+document.getElementById("user-input").addEventListener("input", (event) => {
+    const input = event.target.value;
+    if (input.trim() === "") {
+        document.getElementById("suggestions").style.display = "none";
+    } else {
+        showSuggestions(input);
+    }
+});
