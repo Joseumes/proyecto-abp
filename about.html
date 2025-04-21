@@ -11,10 +11,15 @@
 <body>
     <!-- Encabezado -->
     <header class="bg-primary text-white text-center py-4">
-        <h1>Acerca de</h1>
-        <p>Conoce más sobre este proyecto y su propósito</p>
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
+            <img src="logo.jpg" alt="Logo de Soluciones Inclusivas" style="width: 70px; height: 70px;" class="rounded-circle shadow">
+            <div>
+                <h1 class="mb-1">Acerca de</h1>
+                <p class="mb-0">Conoce más sobre este proyecto y su propósito</p>
+            </div>
+        </div>
     </header>
-
+    
     <!-- Menú de Navegación -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -49,24 +54,27 @@
     </main>
 
     <!-- Footer -->
-    <<footer class="bg-primary text-white text-center py-4 mt-5">
+    <footer class="bg-primary text-white text-center text-md-start py-4 mt-5">
         <div class="container">
-            <p class="mb-3">&copy; 2025 Soluciones Inclusivas. Todos los derechos reservados.</p>
-            
-            <div class="d-flex justify-content-center gap-4 fs-5 mb-3">
-                <a href="https://facebook.com" target="_blank" class="text-white text-decoration-none">
-                    <i class="bi bi-facebook"></i> Facebook
-                </a>
-                <a href="https://instagram.com" target="_blank" class="text-white text-decoration-none">
-                    <i class="bi bi-instagram"></i> Instagram
-                </a>
-                <a href="tel:+50212345678" class="text-white text-decoration-none">
-                    <i class="bi bi-telephone"></i> +502 1234 5678
-                </a>
-                <a href="mailto:contacto@solucionesinclusivas.com" class="text-white text-decoration-none">
-                    <i class="bi bi-envelope"></i> contacto@solucionesinclusivas.com
-                </a>
+            <div class="row align-items-center gy-4">
+                <div class="col-md-4 text-center text-md-start">
+                    <img src="logo.jpg" alt="Logo" style="width: 60px;" class="mb-2 rounded-circle shadow">
+                    <h5 class="mt-2">Soluciones Inclusivas</h5>
+                    <p class="mb-0">Apoyo a estudiantes con TDAH y otras dificultades de aprendizaje</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h6>Contáctanos</h6>
+                    <p class="mb-1"><i class="bi bi-telephone-fill"></i> +502 1234 5678</p>
+                    <p class="mb-1"><i class="bi bi-envelope-fill"></i> contacto@inclusivas.com</p>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <h6>Síguenos</h6>
+                    <a href="#" class="text-white me-3 fs-5"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white fs-5"><i class="bi bi-instagram"></i></a>
+                </div>
             </div>
+            <hr class="bg-light my-3">
+            <p class="text-center mb-0">&copy; 2025 Soluciones Inclusivas. Todos los derechos reservados.</p>
         </div>
     </footer>
 

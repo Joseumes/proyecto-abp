@@ -6,14 +6,17 @@
     <title>Test de TDAH</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="bg-primary text-white text-center py-4">
-        <h1>Test de TDAH</h1>
-        <p>Realiza este cuestionario para evaluar posibles síntomas de TDAH</p>
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
+            <img src="logo.jpg" alt="Logo de Soluciones Inclusivas" style="width: 70px; height: 70px;" class="rounded-circle shadow">
+            <div>
+                <h1 class="mb-1">Test de TDAH</h1>
+                <p class="mb-0">Autoevaluación de síntomas relacionados con el TDAH</p>
+            </div>
+        </div>
     </header>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -25,7 +28,7 @@
                     <li class="nav-item"><a class="nav-link" href="about.html">Acerca de</a></li>
                     <li class="nav-item"><a class="nav-link" href="resources.html">Recursos</a></li>
                     <li class="nav-item"><a class="nav-link active" href="test.html">Test de TDAH</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contacto</a></li>
                 </ul>
             </div>
         </div>
@@ -33,140 +36,117 @@
 
     <main class="container mt-5">
         <section>
-            <h2 class="text-center">Cuestionario de Evaluación de TDAH</h2>
-            <p class="lead text-center">Responde las siguientes preguntas según tu experiencia en los últimos 6 meses.</p>
+            <h2 class="text-center">Cuestionario</h2>
+            <p class="lead text-center">Contesta honestamente con base en los últimos 6 meses.</p>
 
             <form id="tdah-test-form" class="row g-3">
-                <div class="col-md-12">
-                    <label for="q1" class="form-label">
-                        1. ¿Tienes dificultad para concentrarte en tareas o actividades?
-                    </label>
-                    <select class="form-select" id="q1" required>
-                        <option value="">Selecciona una opción</option>
-                        <option value="0">Nunca</option>
-                        <option value="1">Rara vez</option>
-                        <option value="2">A veces</option>
-                        <option value="3">Frecuentemente</option>
-                        <option value="4">Siempre</option>
-                    </select>
-                </div>
+                <script>
+                    const preguntas = [
+                        "¿Te cuesta mantener la atención en tareas largas o repetitivas?",
+                        "¿Tiendes a evitar tareas que requieren esfuerzo mental sostenido?",
+                        "¿A menudo pierdes objetos necesarios para tus actividades (llaves, útiles, etc.)?",
+                        "¿Tienes problemas para seguir instrucciones y finalizar proyectos?",
+                        "¿Te cuesta organizar tareas y actividades diarias?",
+                        "¿Tienes dificultad para permanecer sentado o quieto por mucho tiempo?",
+                        "¿Hablas en momentos inapropiados o interrumpes a los demás con frecuencia?",
+                        "¿Sueles actuar impulsivamente sin pensar en las consecuencias?",
+                        "¿Te sientes inquieto o como si siempre necesitaras moverte?",
+                        "¿Te resulta difícil relajarte en tus ratos libres?"
+                    ];
+                </script>
 
-                <div class="col-md-12">
-                    <label for="q2" class="form-label">
-                        2. ¿Te distraes fácilmente con estímulos externos (ruido, movimientos, etc.)?
-                    </label>
-                    <select class="form-select" id="q2" required>
-                        <option value="">Selecciona una opción</option>
-                        <option value="0">Nunca</option>
-                        <option value="1">Rara vez</option>
-                        <option value="2">A veces</option>
-                        <option value="3">Frecuentemente</option>
-                        <option value="4">Siempre</option>
-                    </select>
-                </div>
+                <div id="preguntas-container" class="col-12"></div>
 
-                <div class="col-md-12">
-                    <label for="q3" class="form-label">
-                        3. ¿Sientes que no puedes controlar tus impulsos (interrumpir, hablar demasiado, etc.)?
-                    </label>
-                    <select class="form-select" id="q3" required>
-                        <option value="">Selecciona una opción</option>
-                        <option value="0">Nunca</option>
-                        <option value="1">Rara vez</option>
-                        <option value="2">A veces</option>
-                        <option value="3">Frecuentemente</option>
-                        <option value="4">Siempre</option>
-                    </select>
-                </div>
-
-                <div class="col-md-12">
-                    <label for="q4" class="form-label">
-                        4. ¿Te cuesta organizar tus tareas o actividades diarias?
-                    </label>
-                    <select class="form-select" id="q4" required>
-                        <option value="">Selecciona una opción</option>
-                        <option value="0">Nunca</option>
-                        <option value="1">Rara vez</option>
-                        <option value="2">A veces</option>
-                        <option value="3">Frecuentemente</option>
-                        <option value="4">Siempre</option>
-                    </select>
-                </div>
-
-                <div class="col-md-12">
-                    <label for="q5" class="form-label">
-                        5. ¿Sientes hiperactividad o inquietud física constante?
-                    </label>
-                    <select class="form-select" id="q5" required>
-                        <option value="">Selecciona una opción</option>
-                        <option value="0">Nunca</option>
-                        <option value="1">Rara vez</option>
-                        <option value="2">A veces</option>
-                        <option value="3">Frecuentemente</option>
-                        <option value="4">Siempre</option>
-                    </select>
-                </div>
-
-                <div class="col-md-12 text-center">
-                    <button type="button" onclick="evaluateTest()" class="btn btn-primary">Ver Resultados</button>
+                <div class="col-12 text-center">
+                    <button type="button" class="btn btn-primary" onclick="evaluarTest()">Ver Resultados</button>
                 </div>
             </form>
 
             <div id="test-results" class="mt-4 text-center d-none">
                 <h3>Resultados</h3>
                 <p id="result-message"></p>
-                <p><strong>Nota:</strong> Este test es solo una herramienta informativa. Para un diagnóstico preciso, consulta a un profesional de la salud mental.</p>
+                <p><strong>Nota:</strong> Este test no sustituye una evaluación profesional. Consulta a un especialista si tienes dudas.</p>
             </div>
         </section>
     </main>
 
-    <footer class="bg-primary text-white text-center py-4 mt-5">
+    <footer class="bg-primary text-white text-center text-md-start py-4 mt-5">
         <div class="container">
-            <p class="mb-3">&copy; 2025 Soluciones Inclusivas. Todos los derechos reservados.</p>
-            
-            <div class="d-flex justify-content-center gap-4 fs-5 mb-3">
-                <a href="https://facebook.com" target="_blank" class="text-white text-decoration-none">
-                    <i class="bi bi-facebook"></i> Facebook
-                </a>
-                <a href="https://instagram.com" target="_blank" class="text-white text-decoration-none">
-                    <i class="bi bi-instagram"></i> Instagram
-                </a>
-                <a href="tel:+50212345678" class="text-white text-decoration-none">
-                    <i class="bi bi-telephone"></i> +502 1234 5678
-                </a>
-                <a href="mailto:contacto@solucionesinclusivas.com" class="text-white text-decoration-none">
-                    <i class="bi bi-envelope"></i> contacto@solucionesinclusivas.com
-                </a>
+            <div class="row align-items-center gy-4">
+                <div class="col-md-4 text-center text-md-start">
+                    <img src="logo.jpg" alt="Logo" style="width: 60px;" class="mb-2 rounded-circle shadow">
+                    <h5 class="mt-2">Soluciones Inclusivas</h5>
+                    <p class="mb-0">Apoyo a estudiantes con TDAH y otras dificultades de aprendizaje</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h6>Contáctanos</h6>
+                    <p class="mb-1"><i class="bi bi-telephone-fill"></i> +502 1234 5678</p>
+                    <p class="mb-1"><i class="bi bi-envelope-fill"></i> contacto@inclusivas.com</p>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <h6>Síguenos</h6>
+                    <a href="#" class="text-white me-3 fs-5"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white fs-5"><i class="bi bi-instagram"></i></a>
+                </div>
             </div>
+            <hr class="bg-light my-3">
+            <p class="text-center mb-0">&copy; 2025 Soluciones Inclusivas. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        function evaluateTest() {
-            // Obtener las respuestas
-            const q1 = parseInt(document.getElementById("q1").value);
-            const q2 = parseInt(document.getElementById("q2").value);
-            const q3 = parseInt(document.getElementById("q3").value);
-            const q4 = parseInt(document.getElementById("q4").value);
-            const q5 = parseInt(document.getElementById("q5").value);
+        // Generar preguntas automáticamente
+        const contenedor = document.getElementById("preguntas-container");
+        preguntas.forEach((texto, index) => {
+            const id = `q${index + 1}`;
+            const div = document.createElement("div");
+            div.className = "col-md-12 mb-3";
+            div.innerHTML = `
+                <label for="${id}" class="form-label">${index + 1}. ${texto}</label>
+                <select class="form-select" id="${id}" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="0">Nunca</option>
+                    <option value="1">Casi nunca</option>
+                    <option value="2">A veces</option>
+                    <option value="3">Frecuentemente</option>
+                    <option value="4">Muy frecuentemente</option>
+                </select>
+            `;
+            contenedor.appendChild(div);
+        });
 
-            // Calcular el puntaje total
-            const totalScore = q1 + q2 + q3 + q4 + q5;
+        function evaluarTest() {
+            let total = 0;
+            let incompletas = false;
+            for (let i = 1; i <= preguntas.length; i++) {
+                const respuesta = parseInt(document.getElementById(`q${i}`).value);
+                if (isNaN(respuesta)) {
+                    incompletas = true;
+                    break;
+                }
+                total += respuesta;
+            }
 
-            // Mostrar resultados
             const resultDiv = document.getElementById("test-results");
             const resultMessage = document.getElementById("result-message");
 
-            if (totalScore <= 5) {
-                resultMessage.textContent = "Tu puntaje es bajo. Es poco probable que tengas síntomas significativos de TDAH.";
-            } else if (totalScore > 5 && totalScore <= 15) {
-                resultMessage.textContent = "Tu puntaje es moderado. Podrías tener algunos síntomas de TDAH. Considera buscar más información.";
+            if (incompletas) {
+                resultMessage.innerHTML = `<span class="text-danger">Por favor, responde todas las preguntas.</span>`;
             } else {
-                resultMessage.textContent = "Tu puntaje es alto. Podrías tener síntomas significativos de TDAH. Te recomendamos consultar a un profesional.";
+                const max = preguntas.length * 4;
+                const porcentaje = (total / max) * 100;
+
+                if (porcentaje <= 25) {
+                    resultMessage.textContent = "Puntaje bajo: No se observan indicios significativos de TDAH.";
+                } else if (porcentaje > 25 && porcentaje <= 50) {
+                    resultMessage.textContent = "Puntaje moderado: Podrías tener algunas características relacionadas con TDAH.";
+                } else if (porcentaje > 50 && porcentaje <= 75) {
+                    resultMessage.textContent = "Puntaje alto: Hay señales importantes que podrían indicar TDAH. Considera consultar a un especialista.";
+                } else {
+                    resultMessage.textContent = "Puntaje muy alto: Es muy probable que presentes síntomas significativos de TDAH. Es importante buscar evaluación profesional.";
+                }
             }
 
-            // Mostrar el div de resultados
             resultDiv.classList.remove("d-none");
         }
     </script>

@@ -91,3 +91,21 @@ footer a:hover {
     color: #ffc107;
     transition: 0.3s;
 }
+
+header img {
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+header img {
+    border: 2px solid #fff;
+    transition: transform 0.3s;
+}
+
+header img:hover {
+    transform: scale(1.1);
+}
+
+
